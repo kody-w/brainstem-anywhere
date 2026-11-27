@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brainstem Anywhere</title>
+<meta name="description" content="Your own AI as one file. Download it, drop it into claude.ai or any AI, and it wakes up there.">
+<style>
+:root{--bg:#f7f7f5;--card:#fff;--ink:#17191d;--soft:#5d636e;--go:#3a63f0;--line:#e3e4e8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1115;--card:#181b22;--ink:#e9ebf0;--soft:#9aa3b2;--go:#6b8cff;--line:#262a33}}
+:root[data-theme="dark"]{--bg:#0f1115;--card:#181b22;--ink:#e9ebf0;--soft:#9aa3b2;--go:#6b8cff;--line:#262a33}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:620px;margin:0 auto;padding:48px 16px 40px}
+h1{font-size:34px;line-height:1.15;margin:0 0 10px;letter-spacing:-.02em}.lede{color:var(--soft);margin:0 0 32px;font-size:19px}
+.big{display:block;width:100%;text-align:center;background:var(--go);color:#fff;text-decoration:none;font-weight:650;font-size:19px;padding:18px;border-radius:14px}
+.meta{color:var(--soft);font-size:14px;text-align:center;margin:10px 0 36px}
+ol{list-style:none;padding:0;margin:0;counter-reset:s}ol li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 18px 60px;margin:0 0 12px;position:relative}
+ol li::before{content:counter(s);position:absolute;left:18px;top:16px;width:28px;height:28px;border-radius:50%;background:var(--go);color:#fff;font-weight:700;display:grid;place-items:center;font-size:15px}
+ol b{display:block;margin-bottom:4px}ol p{margin:0;color:var(--soft)}
+.say{margin:10px 0 0;padding:12px 14px;background:var(--bg);border-radius:10px;font-style:italic;color:var(--ink)}
+button{margin-top:10px;font:inherit;font-size:15px;font-weight:600;background:transparent;color:var(--go);border:2px solid var(--go);border-radius:10px;padding:8px 14px;cursor:pointer}
+details{margin-top:28px;color:var(--soft);font-size:15px}summary{cursor:pointer}details a{color:var(--go)}
+code{font-size:13px;word-break:break-all}
+</style></head>
+<body><main>
+<h1>Your AI, in one file.</h1>
+<p class="lede">Download a Brainstem, drop it into claude.ai or any AI that runs Python, and it wakes up there with its own agents and memory.</p>
+
+<a class="big" id="dl" href="api/v1/brainstem.json" download="brainstem.py">Download my Brainstem</a>
+<p class="meta" id="meta">&nbsp;</p>
+
+<ol>
+<li><b>Download</b><p>One file, <span id="name">brainstem.py</span>. No sign-in, no keys inside.</p></li>
+<li><b>Drop it into your AI</b><p>Attach the file in claude.ai (or any AI that can run Python) and say:</p>
+<div class="say" id="say">Wake this Brainstem using the instructions at the top of the file. You are its model. Pass everything I say to it and show me its exact reply.</div>
+<button id="copy">Copy this sentence</button></li>
+<li><b>Talk to it</b><p>Everything you say goes to your Brainstem. Ask it to remember things; its memory agents keep them.</p></li>
+<li><b>Take it home</b><p>When you're done, ask your AI for <b>chat.json</b>. Open a Brainstem on your computer, click Import, and the conversation carries on.</p></li>
+</ol>
+
+<details><summary>Details</summary>
+<p id="details">Loading…</p>
+<p>For AIs and scripts: <a href="llms.txt">llms.txt</a> · <a href="api/v1/brainstem.json">api/v1/brainstem.json</a> · <a href="registry.json">registry.json</a></p>
+</details>
+
+<script>
+fetch("api/v1/brainstem.json").then(r=>r.json()).then(b=>{
+  const rel=new URL(b.download).pathname.split("/brainstem-anywhere/")[1]||b.download;
+  const a=document.getElementById("dl"); a.href=rel; a.download=b.file_name;
+  document.getElementById("meta").textContent=`Brainstem ${b.brainstem_version} · ${Math.round(b.size/1024)} KB · checks itself before it runs`;
+  document.getElementById("say").textContent=b.say_to_your_ai;
+  document.getElementById("details").innerHTML=`Agents inside: ${b.agents.join(", ")}.<br>Fingerprint (sha256): <code>${b.sha256}</code><br>Made from the unchanged Brainstem kernel: <a href="${b.source}">${b.source.split("/tree/")[1].slice(0,12)}</a>.`;
+}).catch(()=>{document.getElementById("meta").textContent="";});
+document.getElementById("copy").onclick=async e=>{try{await navigator.clipboard.writeText(document.getElementById("say").textContent);e.target.textContent="Copied"}catch(_){e.target.textContent="Select the sentence and copy it"}};
+</script>
+</main></body></html>

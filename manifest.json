@@ -1,0 +1,9 @@
+{
+  "schema": "rapp-static-api/1.1",
+  "name": "brainstem-anywhere",
+  "pages_base": "https://kody-w.github.io/brainstem-anywhere",
+  "raw_base": "https://raw.githubusercontent.com/kody-w/brainstem-anywhere/main",
+  "grail": {"repo": "https://github.com/kody-w/rapp-installer", "commit": "0e43ee580e78c150b1c59002456822d2e779388e", "folder": "rapp_brainstem"},
+  "brainfreeze": {"repo": "https://github.com/kody-w/rapp-brainfreeze", "commit": "e96c31882365eb8744221e08b7078187a8c24796"},
+  "sentence": "Wake this Brainstem using the instructions at the top of the file. You are its model. Pass everything I say to it and show me its exact reply."
+}

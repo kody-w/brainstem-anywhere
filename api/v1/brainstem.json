@@ -1,0 +1,17 @@
+{
+  "schema": "brainstem-anywhere-brainstem/1.0",
+  "generated_at": "2026-11-27T02:03:01Z",
+  "source": "https://github.com/kody-w/rapp-installer/tree/0e43ee580e78c150b1c59002456822d2e779388e",
+  "download": "https://kody-w.github.io/brainstem-anywhere/versions/brainstem/d12f1f1fc670.py",
+  "raw": "https://raw.githubusercontent.com/kody-w/brainstem-anywhere/main/versions/brainstem/d12f1f1fc670.py",
+  "file_name": "brainstem.py",
+  "sha256": "d12f1f1fc670ecceb9a32900cfe303e1ced57a2e944ff21cfe56c0ff2aeb00da",
+  "size": 250794,
+  "brainstem_version": "0.6.16",
+  "agents": [
+    "context_memory_agent",
+    "hacker_news_agent",
+    "manage_memory_agent"
+  ],
+  "say_to_your_ai": "Wake this Brainstem using the instructions at the top of the file. You are its model. Pass everything I say to it and show me its exact reply."
+}
