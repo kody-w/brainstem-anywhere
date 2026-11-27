@@ -1,0 +1,39 @@
+# When the grail ships a new Brainstem (its rapp_brainstem/VERSION changes on main), rebuild the file and open a
+# pull request. Nothing reaches the live site until the pull request is merged.
+name: new-brainstem
+on:
+  schedule: [{cron: "17 */6 * * *"}]
+  workflow_dispatch: {}
+permissions: {contents: write, pull-requests: write}
+concurrency: {group: pages-main, cancel-in-progress: false}
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Look at the grail
+        id: g
+        run: |
+          sha=$(git ls-remote https://github.com/kody-w/rapp-installer refs/heads/main | cut -f1)
+          ver=$(curl -sf "https://raw.githubusercontent.com/kody-w/rapp-installer/$sha/rapp_brainstem/VERSION" | tr -d '[:space:]')
+          have=$(python3 -c "import json;print(json.load(open('registry.json'))['summary']['brainstem_version'])")
+          echo "sha=$sha" >> $GITHUB_OUTPUT; echo "ver=$ver" >> $GITHUB_OUTPUT
+          echo "grail $ver @ $sha, site has $have"
+          if [ -n "$ver" ] && [ "$ver" != "$have" ]; then echo "new=1" >> $GITHUB_OUTPUT; fi
+      - name: Rebuild and open a pull request
+        if: steps.g.outputs.new == '1'
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: |
+          branch="brainstem-${{ steps.g.outputs.ver }}"
+          git ls-remote --exit-code origin "refs/heads/$branch" && { echo "already proposed"; exit 0; }
+          python3 - <<'PY'
+          import json; p="manifest.json"; m=json.load(open(p))
+          m["grail"]["commit"]="${{ steps.g.outputs.sha }}"
+          open(p,"w").write(json.dumps(m,indent=2)+"\n")
+          PY
+          python3 build.py
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"; git add -A; git commit -m "Brainstem ${{ steps.g.outputs.ver }} (grail ${{ steps.g.outputs.sha }})"
+          git push origin "$branch"
+          gh pr create --head "$branch" --title "New Brainstem ${{ steps.g.outputs.ver }}" \
+            --body "The grail moved to ${{ steps.g.outputs.ver }}. Rebuilt from the unchanged kernel. Wake the file in claude.ai before merging."
