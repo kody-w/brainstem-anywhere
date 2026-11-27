@@ -109,8 +109,8 @@ def main():
 ## Use it
 1. Download the file: {latest['download']} (sha256 {entry['sha256']})
 2. Attach it in your AI and say: "{m['sentence']}"
-3. When done, ask for chat.json. A local Brainstem's Import button continues the chat; `brainfreeze memory-home`
-   brings the memory home.
+3. When done, ask for chat.json; at home run `python3 brainstem.py --home chat.json` (memory comes home), then Import
+   continues the chat in the page.
 
 ## API
 - {base}/api/v1/brainstem.json  (schema brainstem-anywhere-brainstem/1.0): latest file, hash, agents, sentence

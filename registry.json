@@ -1,14 +1,31 @@
 {
   "schema": "brainstem-anywhere-registry/1.0",
-  "generated": "2026-11-27T02:03:01Z",
+  "generated": "2026-11-27T02:36:15Z",
   "pages_base": "https://kody-w.github.io/brainstem-anywhere",
   "raw_base": "https://raw.githubusercontent.com/kody-w/brainstem-anywhere/main",
   "summary": {
-    "latest": "d12f1f1fc670",
-    "versions": 1,
+    "latest": "aeb555d57ee7",
+    "versions": 2,
     "brainstem_version": "0.6.16"
   },
   "entries": [
+    {
+      "name": "brainstem",
+      "path": "versions/brainstem/aeb555d57ee7.py",
+      "sha256": "aeb555d57ee7f5253bb66f85cebf23f6244bda982a15fa7574c20b8677babe17",
+      "sha8": "aeb555d57ee7",
+      "size": 251847,
+      "brainstem_version": "0.6.16",
+      "agents": [
+        "context_memory_agent",
+        "hacker_news_agent",
+        "manage_memory_agent"
+      ],
+      "grail_commit": "0e43ee580e78c150b1c59002456822d2e779388e",
+      "brainfreeze_commit": "a4726fdf975c6e15764d657e1cf85e4524653e93",
+      "input_sha256": "9bdfc95cc284b7b666842dc0e756fe8d5daeced3b991d51c2ede53e10d355874",
+      "built_at": "2026-11-27T02:36:15Z"
+    },
     {
       "name": "brainstem",
       "path": "versions/brainstem/d12f1f1fc670.py",

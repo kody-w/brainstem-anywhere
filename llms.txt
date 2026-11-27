@@ -4,10 +4,10 @@
 > Python, such as claude.ai. The AI becomes its model; the Brainstem's agents run in the AI's sandbox.
 
 ## Use it
-1. Download the file: https://kody-w.github.io/brainstem-anywhere/versions/brainstem/d12f1f1fc670.py (sha256 d12f1f1fc670ecceb9a32900cfe303e1ced57a2e944ff21cfe56c0ff2aeb00da)
+1. Download the file: https://kody-w.github.io/brainstem-anywhere/versions/brainstem/aeb555d57ee7.py (sha256 aeb555d57ee7f5253bb66f85cebf23f6244bda982a15fa7574c20b8677babe17)
 2. Attach it in your AI and say: "Wake this Brainstem using the instructions at the top of the file. You are its model. Pass everything I say to it and show me its exact reply."
-3. When done, ask for chat.json. A local Brainstem's Import button continues the chat; `brainfreeze memory-home`
-   brings the memory home.
+3. When done, ask for chat.json; at home run `python3 brainstem.py --home chat.json` (memory comes home), then Import
+   continues the chat in the page.
 
 ## API
 - https://kody-w.github.io/brainstem-anywhere/api/v1/brainstem.json  (schema brainstem-anywhere-brainstem/1.0): latest file, hash, agents, sentence
@@ -16,4 +16,4 @@
 
 ## Made from
 - Brainstem kernel (unchanged): https://github.com/kody-w/rapp-installer @ 0e43ee580e78c150b1c59002456822d2e779388e
-- Packer: https://github.com/kody-w/rapp-brainfreeze @ e96c31882365eb8744221e08b7078187a8c24796
+- Packer: https://github.com/kody-w/rapp-brainfreeze @ a4726fdf975c6e15764d657e1cf85e4524653e93
