@@ -29,12 +29,12 @@ code{font-size:13px;word-break:break-all}
 <ol>
 <li><b>Download</b><p>One file, <span id="name">brainstem.py</span>. No sign-in, no keys inside.</p></li>
 <li><b>Drop it into your AI</b><p>Attach the file in claude.ai (or any AI that can run Python) and say:</p>
-<div class="say" id="say">Wake this Brainstem using the instructions at the top of the file. You are its model. Pass everything I say to it and show me its exact reply.</div>
+<div class="say" id="say">Wake this Brainstem using the instructions at the top of the file. You are its model. Pass everything I say to it and show me its exact reply. When I say I'm done, hand me my Brainstem back as one file.</div>
 <button id="copy">Copy this sentence</button></li>
 <li><b>Talk to it</b><p>Everything you say goes to your Brainstem. Ask it to remember things; its memory agents keep them.</p></li>
-<li><b>Take it home</b><p>When you're done, ask your AI for <b>chat.json</b>. Put it next to your <b>brainstem.py</b> and run:</p>
-<div class="say" style="font-style:normal;font-family:ui-monospace,Menlo,monospace;font-size:15px">python3 brainstem.py --home chat.json</div>
-<p style="margin-top:10px">Your Brainstem opens on your computer and remembers what it learned. Click <b>Import</b>, choose chat.json, and the conversation carries on.</p></li>
+<li><b>Take it home</b><p>Say you're done. Your AI hands you back <b>one file</b>, your Brainstem as it is now. On your computer, run:</p>
+<div class="say" style="font-style:normal;font-family:ui-monospace,Menlo,monospace;font-size:15px">python3 brainstem-home.py</div>
+<p style="margin-top:10px">It opens with everything it learned. Click <b>Import</b> on the page it opens to see the conversation. Next time, take this new file to your AI instead.</p></li>
 </ol>
 <p class="meta" style="margin:18px 0 0">Tried and working in: <b>claude.ai</b></p>
 

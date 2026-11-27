@@ -1,7 +1,7 @@
 {
   "schema": "brainstem-anywhere-status/1.0",
-  "generated_at": "2026-11-27T02:36:15Z",
+  "generated_at": "2026-11-27T03:10:08Z",
   "ok": true,
-  "latest": "aeb555d57ee7",
+  "latest": "685e0ec68df9",
   "brainstem_version": "0.6.16"
 }

@@ -10,7 +10,7 @@
   },
   "brainfreeze": {
     "repo": "https://github.com/kody-w/rapp-brainfreeze",
-    "commit": "a4726fdf975c6e15764d657e1cf85e4524653e93"
+    "commit": "db9745fb7e7e0b08773f240a5231f32feebc88f7"
   },
-  "sentence": "Wake this Brainstem using the instructions at the top of the file. You are its model. Pass everything I say to it and show me its exact reply."
+  "sentence": "Wake this Brainstem using the instructions at the top of the file. You are its model. Pass everything I say to it and show me its exact reply. When I say I'm done, hand me my Brainstem back as one file."
 }

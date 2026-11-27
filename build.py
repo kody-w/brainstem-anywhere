@@ -109,7 +109,8 @@ def main():
 ## Use it
 1. Download the file: {latest['download']} (sha256 {entry['sha256']})
 2. Attach it in your AI and say: "{m['sentence']}"
-3. When done, ask for chat.json; at home run `python3 brainstem.py --home chat.json` (memory comes home), then Import
+3. When done, the AI hands back ONE file (`host take-home brainstem-home.py`): this Brainstem now, memory and chat.
+   At home: `python3 brainstem-home.py`. (Or with a chat.json: `python3 brainstem.py --home chat.json`.) Import
    continues the chat in the page.
 
 ## API
